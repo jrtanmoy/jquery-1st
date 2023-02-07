@@ -1,15 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jQuery begin</title>
+
 </head>
 
 <body>
     <h1>Hello jQuery.</h1>
+    <p class="pera_1">Welcome to jQuery</p>
+    <p id="pera_2">We will replace this text.</p>
+    <p id="pera_3">We will replace this html.</p>
+    <p>Input field: <input style="width: 400px; padding: 6px 16px;" type="text" id="input_val"
+            value="Wanna change the value? Just Click the set value button."></p>
+    <p class="class_1">This is for adding class.</p>
+    <button class="get_btn">Get Text</button>
+    <button class="set_text_btn">Set Text</button>
+    <button class="set_html_btn">Set Html</button>
+    <button class="set_val_btn">Set Value</button>
+    <button class="add_class">Add Class</button>
+    <button class="remove_class">Remove Class</button>
+    <!-- <button class="set_val_btn">Set Value</button> -->
+    <!-- <button></button> -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js">
+
+    </script>
+    <script>
+        $(".get_btn").click(function () {
+            alert("Text: " + $(".pera_1").text());
+        });
+        $(".set_text_btn").click(function () {
+            $("#pera_2").text("I can set text. woooha!");
+        });
+        $(".set_html_btn").click(function () {
+            $("#pera_3").html("<b>We successfully replace the html. yaaah!</b>");
+        });
+        $(".set_val_btn").click(function () {
+            $("#input_val").val("I can set the input value. woooha!");
+        });
+        $(".add_class").click(function () {
+            $(".class_1").addClass("class_2");
+            $(".class_2").css({ "color": "red", "font-size": "30px" });
+        });
+        $(".remove_class").click(function () {
+            $(".class_1").removeClass("class_2");
+            console.log('hello click')
+        });
+    </script>
 </body>
 
 </html>
