@@ -7,7 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jQuery begin</title>
-
+    <style>
+        .main {
+            font-size: 150%;
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -18,21 +23,28 @@
     <p>Input field: <input style="width: 400px; padding: 6px 16px;" type="text" id="input_val"
             value="Wanna change the value? Just Click the set value button."></p>
     <p class="class_1">This is for adding class.</p>
+    <p class="toggle_class_1">Let's use toggle class. Click Togle class button. </p>
+    <p class="toggle_class_2">Let's toggle. Click Toggle button.</p>
     <button class="get_btn">Get Text</button>
     <button class="set_text_btn">Set Text</button>
     <button class="set_html_btn">Set Html</button>
     <button class="set_val_btn">Set Value</button>
     <button class="add_class">Add Class</button>
     <button class="remove_class">Remove Class</button>
+    <button class="toggle_btn_1">Toggle class</button>
+    <button class="toggle_btn_2">Toggle</button>
     <!-- <button class="set_val_btn">Set Value</button> -->
     <!-- <button></button> -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js">
 
     </script>
     <script>
+        // get
         $(".get_btn").click(function () {
             alert("Text: " + $(".pera_1").text());
         });
+
+        // set
         $(".set_text_btn").click(function () {
             $("#pera_2").text("I can set text. woooha!");
         });
@@ -42,14 +54,28 @@
         $(".set_val_btn").click(function () {
             $("#input_val").val("I can set the input value. woooha!");
         });
+
+        // Add class
         $(".add_class").click(function () {
             $(".class_1").addClass("class_2");
             $(".class_2").css({ "color": "red", "font-size": "30px" });
         });
+
+        // Remove class
         $(".remove_class").click(function () {
             $(".class_1").removeClass("class_2");
-            console.log('hello click')
         });
+
+        // Toggle class
+        $(".toggle_btn_1").click(function () {
+            $(".toggle_class_1").toggleClass("main");
+        });
+
+        // Toggle
+        $(".toggle_btn_2").click(function () {
+            $(".toggle_class_2").toggle("Yeah....! Toggle done successfully.");
+        });
+
     </script>
 </body>
 
