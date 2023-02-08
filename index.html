@@ -7,11 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jQuery begin</title>
-    <link rel="stylesheet" href="style.css" <style>
-    .main {
-    font-size: 150%;
-    color: red;
-    }
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .main {
+            font-size: 150%;
+            color: red;
+        }
     </style>
 </head>
 
@@ -47,7 +48,7 @@
         </table>
     </section>
 
-    <h2>Country Details</h1>
+    <h2> Rest country api with jQuery Ajax method:</h1>
         <section id="countries" class="container">
 
         </section>
@@ -114,7 +115,14 @@
                     success: function (data) {
                         $.each(data, function (index, value) {
                             console.log(data);
-                            $("#countries").append("<div><p>Country Name: " + value.name.common + "</p><p>Country Capital: " + value.capital + "</p><p>Country Population: " + value.population + "</p></div>")
+                            $("#countries").append(`<div class="card">
+                                <div><img src=${value.flags.png}></div>
+                                <div>
+                                    <p>Country Name:  ${value.name.common}</p
+                                    <p>Country Capital: ${value.capital}</p>
+                                    <p>Country Population: ${value.population}</p>
+                                </div>
+                                    </div>`)
                         })
                     }
                 });

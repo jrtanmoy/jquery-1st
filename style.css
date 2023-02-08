@@ -21,13 +21,23 @@ td {
 
 .container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 
-.country div {
+.country .card {
     border-radius: 10px;
     margin: 10px;
     padding: 20px;
     box-sizing: border-box;
     box-shadow: 6px 8px 8px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* .card {
+    
+} */
+
+.card img {
+    border: 2px solid black;
+    max-width: 50%;
+    margin: auto;
 }
