@@ -7,11 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jQuery begin</title>
-    <style>
-        .main {
-            font-size: 150%;
-            color: red;
-        }
+    <link rel="stylesheet" href="style.css" <style>
+    .main {
+    font-size: 150%;
+    color: red;
+    }
     </style>
 </head>
 
@@ -33,50 +33,97 @@
     <button class="remove_class">Remove Class</button>
     <button class="toggle_btn_1">Toggle class</button>
     <button class="toggle_btn_2">Toggle</button>
-    <!-- <button class="set_val_btn">Set Value</button> -->
-    <!-- <button></button> -->
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js">
+    <section class="ajax_section">
+        <h2>json placeholder api with jQuery Ajax method:</h2>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+            <tbody id="main_data">
 
-    </script>
-    <script>
-        // get
-        $(".get_btn").click(function () {
-            alert("Text: " + $(".pera_1").text());
-        });
+            </tbody>
+        </table>
+    </section>
 
-        // set
-        $(".set_text_btn").click(function () {
-            $("#pera_2").text("I can set text. woooha!");
-        });
-        $(".set_html_btn").click(function () {
-            $("#pera_3").html("<b>We successfully replace the html. yaaah!</b>");
-        });
-        $(".set_val_btn").click(function () {
-            $("#input_val").val("I can set the input value. woooha!");
-        });
+    <h2>Country Details</h1>
+        <section id="countries" class="container">
 
-        // Add class
-        $(".add_class").click(function () {
-            $(".class_1").addClass("class_2");
-            $(".class_2").css({ "color": "red", "font-size": "30px" });
-        });
+        </section>
+        <!-- <button class="set_val_btn">Set Value</button> -->
+        <!-- <button></button> -->
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js">
 
-        // Remove class
-        $(".remove_class").click(function () {
-            $(".class_1").removeClass("class_2");
-        });
+        </script>
+        <script>
+            // get
+            $(".get_btn").click(function () {
+                alert("Text: " + $(".pera_1").text());
+            });
 
-        // Toggle class
-        $(".toggle_btn_1").click(function () {
-            $(".toggle_class_1").toggleClass("main");
-        });
+            // set
+            $(".set_text_btn").click(function () {
+                $("#pera_2").text("I can set text. woooha!");
+            });
+            $(".set_html_btn").click(function () {
+                $("#pera_3").html("<b>We successfully replace the html. yaaah!</b>");
+            });
+            $(".set_val_btn").click(function () {
+                $("#input_val").val("I can set the input value. woooha!");
+            });
 
-        // Toggle
-        $(".toggle_btn_2").click(function () {
-            $(".toggle_class_2").toggle("Yeah....! Toggle done successfully.");
-        });
+            // Add class
+            $(".add_class").click(function () {
+                $(".class_1").addClass("class_2");
+                $(".class_2").css({ "color": "red", "font-size": "30px" });
+            });
 
-    </script>
+            // Remove class
+            $(".remove_class").click(function () {
+                $(".class_1").removeClass("class_2");
+            });
+
+            // Toggle class
+            $(".toggle_btn_1").click(function () {
+                $(".toggle_class_1").toggleClass("main");
+            });
+
+            // Toggle
+            $(".toggle_btn_2").click(function () {
+                $(".toggle_class_2").toggle("Yeah....! Toggle done successfully.");
+            });
+
+            // ajax
+            $(function () {
+                $.ajax({
+                    url: "https://jsonplaceholder.typicode.com/comments?postId=1",
+                    type: "GET",
+                    success: function (data) {
+                        $.each(data, function (index, value) {
+                            // console.log(data);
+                            $("#main_data").append("<tr><td>" + value.id + "</td><td>" + value.name + "</td><td>" + value.email + "</td></tr>")
+                        })
+                    }
+                });
+            });
+            $(function () {
+                $.ajax({
+                    url: "https://restcountries.com/v3.1/all",
+                    type: "GET",
+                    success: function (data) {
+                        $.each(data, function (index, value) {
+                            console.log(data);
+                            $("#countries").append("<div><p>Country Name: " + value.name.common + "</p><p>Country Capital: " + value.capital + "</p><p>Country Population: " + value.population + "</p></div>")
+                        })
+                    }
+                });
+                $(function () {
+                    $("#countries").addClass("country");
+                });
+            });
+
+        </script>
 </body>
 
 </html>

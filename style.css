@@ -1,0 +1,33 @@
+.ajax_section {
+    margin-top: 5%;
+}
+
+h2 {
+    text-align: center;
+}
+
+table {
+    border: 2px solid black;
+    width: 90%;
+    margin: 4% auto;
+}
+
+th,
+td {
+    padding: 10px;
+    border: 2px solid black;
+    text-align: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.country div {
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 6px 8px 8px 6px rgba(0, 0, 0, 0.2);
+}
